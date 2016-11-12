@@ -8,5 +8,9 @@ app.listen(3000 , function() {
 
 app.get("/", function(request, response){
 
-	response.send("Coming soon");
+	var command = request.query.command;
+
+	response.send(command);
+
+
 });
