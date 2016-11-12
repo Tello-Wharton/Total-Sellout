@@ -11,8 +11,8 @@ var commands = {
 	getusers : function(request){
 
 		var shop = request.query.shop;
-		var timeStart = request.query.timestart;
-		var timeEnd = request.query.timeend;
+		//var timeStart = request.query.timestart;
+		//var timeEnd = request.query.timeend;
 		if (shop == undefined) {
 
 			return "Error, value needed for shop";
@@ -21,7 +21,22 @@ var commands = {
 
 
 		return shop;
+	},
+
+	getshops : function(request){
+
+		var userid = request.query.userid;
+
+		if (userid == undefined) {
+
+			return "Error, value needed for userid";
+
+		}
+
+		return userid;
 	}
+
+
 };
 
 app.get("/", function(request, response){
