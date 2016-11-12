@@ -8,8 +8,19 @@ app.listen(3000 , function() {
 
 var commands = {
 
-	getshops : function(request){
-		return "cake";
+	getusers : function(request){
+
+		var shop = request.query.shop;
+		var timeStart = request.query.timestart;
+		var timeEnd = request.query.timeend;
+		if (shop == undefined) {
+
+			return "Error, value needed for shop";
+
+		}
+
+
+		return shop;
 	}
 };
 
@@ -24,7 +35,7 @@ app.get("/", function(request, response){
 	}else{
 
 		response.send(commands[command](request));
-		
+
 	}
 
 
