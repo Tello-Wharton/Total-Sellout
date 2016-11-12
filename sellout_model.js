@@ -9,9 +9,16 @@ function performMongoOperation(operationFunction) {
 }
 
 function storeItemFromTransaction(item) {
+    var itemToInsert = {
+        customer: item.customer,
+        company: item.company,
+        itemName: item.itemName,
+        cost: item.cost
+    };
+
     performMongoOperation(function(err, db) {
         var collection = db.collection('transactionItem');
-        collection.insertOne(item);
+        collection.insertOne(itemToInsert);
     });
 }
 
