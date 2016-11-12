@@ -1,0 +1,23 @@
+{
+  "name": "total-sellout",
+  "version": "1.0.0",
+  "description": "Great Uni Hack 2016",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tello-Wharton/Total-Sellout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tello-Wharton/Total-Sellout/issues"
+  },
+  "homepage": "https://github.com/Tello-Wharton/Total-Sellout#readme"
+}
