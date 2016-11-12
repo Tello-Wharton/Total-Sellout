@@ -6,11 +6,19 @@ app.listen(3000 , function() {
     console.log("running");
 });
 
-app.get("/", function(request, response){
+var commands = {
 
+	getshops : function(request){
+		return "cake";
+	}
+};
+
+app.get("/", function(request, response){
+	response.setHeader('Content-Type', 'application/json');
+	
 	var command = request.query.command;
 
-	response.send(command);
+	response.send(commands[command](request));
 
 
 });
