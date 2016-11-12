@@ -40,8 +40,7 @@ app.post('/upload_handler', function (req, res) {
 app.post('/upload_handler', upload.single('file'), function (req, res, next) {
   // req.file is the `avatar` file 
   // req.body will hold the text fields, if there were any
-  	var tempPath = req.file.path,
-        targetPath = path.resolve('./uploads/image.png');
+  	var tempPath = req.file.path;
 
     fs.rename(tempPath, tempPath + ".png", function(err) {
 	    if ( err ) console.log('ERROR: ' + err);
