@@ -15,10 +15,17 @@ var commands = {
 
 app.get("/", function(request, response){
 	response.setHeader('Content-Type', 'application/json');
-	
-	var command = request.query.command;
 
-	response.send(commands[command](request));
+	var command = request.query.command;
+	if (commands[command] == undefined) {
+
+		response.send("Error! " + command + " is not recognised as a command.");
+
+	}else{
+
+		response.send(commands[command](request));
+		
+	}
 
 
 });
