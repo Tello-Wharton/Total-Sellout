@@ -1,3 +1,6 @@
+exports.storeItemFromTransaction = storeItemFromTransaction;
+exports.getVendorCustomerData = getVendorCustomerData;
+
 var MongoClient = require('mongodb').MongoClient;
 
 /**
@@ -86,7 +89,3 @@ function getVendorCustomerData(vendor, callback) {
         });
     });
 };
-
-
-exports.storeItemFromTransaction = storeItemFromTransaction;
-exports.getVendorCustomerData = getVendorCustomerData;
