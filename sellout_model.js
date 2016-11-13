@@ -31,7 +31,40 @@ function getVendorCustomerData(vendor, callback) {
 
         collection.find(query).each(function(err, doc) {
             if(doc == null) {
-                callback(err, customerDataMap);
+                var vendorCustomerData = [];
+
+                (function formatData() {
+                    for(var customerKey in customerDataMap) {
+                        var customerObject = {
+                            customer: customerKey,
+                            vendors: []
+                        };
+
+                        var vendors = customerDataMap[customerKey];
+                        for(var vendor in vendors) {
+                            var vendorObject = {
+                                vendor: vendor,
+                                transactionItems : []
+                            };
+
+                            var transactionItems = vendors[vendor];
+                            for(var transactionItemName in transactionItems) {
+                                var transactionItem = {
+                                    item: transactionItemName,
+                                    quantity: transactionItems[transactionItemName]
+                                };
+
+                                vendorObject.transactionItems.push(transactionItem);
+                            }
+
+                            customerObject.vendors.push(vendorObject);
+                        }
+
+                        vendorCustomerData.push(customerObject);
+                    }
+                })()
+
+                callback(err, vendorCustomerData);
             }
             else {
                 var customerId = doc.customer;
@@ -42,7 +75,6 @@ function getVendorCustomerData(vendor, callback) {
                 var vendorName = doc.vendor;
                 if(typeof customerDataMap[customerId][vendorName] == "undefined") {
                     customerDataMap[customerId][vendorName] = {};
-                    console.log("woolad");
                 }
 
                 var itemName = doc.itemName;
