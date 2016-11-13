@@ -4,7 +4,8 @@
   "description": "Great Uni Hack 2016",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "sync": "^0.2.5"
   },
   "devDependencies": {},
   "scripts": {
