@@ -29,6 +29,13 @@ model.storeItemFromTransaction({
         number: "allo"
 });
 
+model.storeItemFromTransaction({
+        customer: 222222,
+        vendor: "KFC",
+        itemName: "Chicken",
+        cost: 300
+});
+
 
 model.getVendorCustomerData("Tesco", function(err, results) {
     console.log(JSON.stringify(results));

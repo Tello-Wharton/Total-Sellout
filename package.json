@@ -8,7 +8,9 @@
     "lwip": "0.0.9",
     "multer": "^1.2.0",
     "request": "^2.78.0",
-    "sync": "^0.2.5"
+    "sync": "^0.2.5",
+    "mongodb": "^2.2.11",
+    "twilio": "^2.11.0"
   },
   "devDependencies": {},
   "scripts": {
