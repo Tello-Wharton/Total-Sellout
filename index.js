@@ -70,6 +70,13 @@ app.post('/upload_handler', upload.single('file'), function (req, res, next) {
 	
 });
 
+////////////////////////////////////////////////////////////////////////
+var twilio_accountSid = 'AC4b8ab878645d75095b4de7d767226ae8'; // Your Account SID from www.twilio.com/console
+var twilio_authToken = "fd12f91381ef650e6199b3b301f01877";
+var twilio_number = '+441202286170';
+
+var twilio = require('twilio');
+var twilio_client = new twilio.RestClient(twilio_accountSid, twilio_authToken);
 
 
 
@@ -78,7 +85,7 @@ app.post('/upload_handler', upload.single('file'), function (req, res, next) {
 ////////////////////////////////////////////////////////////////////////
 var commands = {
 
-	getusers : function(request){
+	getusers : function(request, response){
 
 		var shop = request.query.shop;
 		//var timeStart = request.query.timestart;
@@ -89,11 +96,14 @@ var commands = {
 
 		}
 
+		model.getVendorCustomerData(shop, function(err, data){
+			response.send(data);
+		});
 
 		return shop;
 	},
 
-	getshops : function(request){
+	getshops : function(request, response){
 
 		var userid = request.query.userid;
 
@@ -103,7 +113,35 @@ var commands = {
 
 		}
 
-		return userid;
+		/*model.getVendorCustomerData(userid, function(err, data){
+			response.send(data);
+		});*/
+
+		//return userid;
+	},
+
+	advertise : function(request, response){
+
+    	var mobileNumber
+
+
+		if (mobileNumber == undefined) mobileNumber = '+447850546917';
+
+	    twilio_client.messages.create({
+	        body: request.query.message,
+	        to: mobileNumber,
+	        from: twilio_number // From a valid Twilio number
+	    }, function(err, message) {
+
+	    	if (err) {
+	    		console.log(err);
+	    	}else{
+	        	console.log(message.sid);
+	        }
+	    });
+
+	    response.send("Advertisment complete");
+
 	}
 
 };
@@ -118,7 +156,8 @@ app.get("/api", function(request, response){
 
 	}else{
 
-		response.send(commands[command](request));
+		//response.send(commands[command](request));
+		commands[command](request, response);
 
 	}
 
