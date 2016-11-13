@@ -1,4 +1,4 @@
-var model = require("./sellout_model.js");
+var model = require("../sellout_model.js");
 
 model.storeItemFromTransaction({
         customer: 2345678,
