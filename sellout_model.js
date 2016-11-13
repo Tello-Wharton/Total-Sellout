@@ -16,7 +16,8 @@ function storeItemFromTransaction(item) {
         customer: item.customer,
         vendor: item.vendor,
         itemName: item.itemName,
-        cost: item.cost
+        cost: item.cost,
+        number: item.number
     };
 
     performMongoOperation(function(err, db) {
@@ -40,7 +41,8 @@ function getVendorCustomerData(vendor, callback) {
                     for(var customerKey in customerDataMap) {
                         var customerObject = {
                             customer: customerKey,
-                            vendors: []
+                            vendors: [],
+                            number: customerDataMap[customerKey]['number']
                         };
 
                         var vendors = customerDataMap[customerKey];
@@ -73,6 +75,10 @@ function getVendorCustomerData(vendor, callback) {
                 var customerId = doc.customer;
                 if(typeof customerDataMap[customerId] == "undefined") {
                     customerDataMap[customerId] = {};
+                }
+
+                if(doc.number) {
+                    customerDataMap[customerId].number = doc.number;
                 }
 
                 var vendorName = doc.vendor;
