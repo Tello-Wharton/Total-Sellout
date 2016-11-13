@@ -27,7 +27,7 @@ function ocr_request(file_path, file_name){
     formData: 
      { apikey: 'ceca7feab588957',
        language: 'eng',
-       isOverlayRequired: 'true',
+       isOverlayRequired: 'false',
        file: 
         { value: fs.createReadStream(file_path),
           options: { filename: file_name, contentType: null } } } };
