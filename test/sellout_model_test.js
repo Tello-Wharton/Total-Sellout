@@ -33,8 +33,7 @@ model.storeItemFromTransaction({
         customer: 222222,
         vendor: "KFC",
         itemName: "Chicken",
-        cost: 300,
-        number: "+447850546917"
+        cost: 300
 });
 
 
