@@ -25,7 +25,8 @@ model.storeItemFromTransaction({
         customer: 2345678,
         vendor: "Tesco",
         itemName: "Watah",
-        cost: 55
+        cost: 55,
+        number: "allo"
 });
 
 
