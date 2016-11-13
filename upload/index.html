@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Total Sellout</title>
+	<meta charset="utf-8"/>
+
+	<link href="style.css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="script.js"></script>
 </head>
 <body>
-	<form method="post" enctype="multipart/form-data" action="../upload_handler">
-	    <input type="file" accept="image/*" capture="camera" name="file">
-	    <input type="submit" value="Submit">
-	</form>
+	<header>
+		<h1>Total Sellout</h1>
+		<h2>Become a part of the corperate machine!</h2>
+	</header>
+	<main>
+		<form method="post" enctype="multipart/form-data" action="../upload_handler" id="form">
+			<label for="take-photo" id="photo-label">
+			<div id="button">
+				<img src="camera.png"/>
+				<br/>
+				Upload Image
+			</div>
+			</label>
+			<input id="take-photo" type="file" accept="image/*" capture="camera" name="file"/><br/>
+		    <input id="submit" type="submit" value="Submit"/>
+		</form>
+	</main>
+	<footer>
+		<small>[Copyright information]</small>
+	</footer>
+
 </body>
 </html>
-

@@ -5,6 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.14.0",
+    "lwip": "0.0.9",
+    "multer": "^1.2.0",
+    "request": "^2.78.0",
     "sync": "^0.2.5"
   },
   "devDependencies": {},
